@@ -31,9 +31,10 @@ router.post('/create', (req, res)=>{
 
 router.get('/edit/:id', (req, res)=>{
 
-	userModel.getById(function(results){
-		console.log(results)
-		res.render('user/edit', results);
+	// console.log(req.params.id);
+	userModel.getById(req.params.id, function(results){
+		// console.log(results[0].user_name);
+		res.render('user/edit', results[0]);
 	});
 });
 
@@ -42,8 +43,10 @@ router.post('/edit/:id', (req, res)=>{
 });
 
 router.get('/delete/:id', (req, res)=>{
-	var user = {username: 'alamin', password: '123', email: 'email@gmail.com'};
-	res.render('user/delete', user);
+	userModel.getById(req.params.id, function(results){
+		// console.log(results[0].user_name);
+		res.render('user/delete', results[0]);
+	});
 });
 
 router.post('/delete/:id', (req, res)=>{

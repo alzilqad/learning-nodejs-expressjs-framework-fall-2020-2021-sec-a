@@ -12,10 +12,10 @@ module.exports= {
 		});
 	},
 	getById: function(id, callback){
-		// var sql = "select * from user where userId='"+id+"'";
-		// db.getResults(sql, function(results){
-		// 	callback(results);
-		// });
+		var sql = "select * from user where userId='"+id+"'";
+		db.getResults(sql, function(results){
+			callback(results);
+		});
 	},
 	getAll: function(callback){
 		var sql = "select * from user";
