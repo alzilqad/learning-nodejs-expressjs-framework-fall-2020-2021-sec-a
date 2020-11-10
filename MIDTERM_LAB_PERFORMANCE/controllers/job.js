@@ -11,7 +11,7 @@ router.get('*',  (req, res, next)=>{
 });
 
 router.get('/create', (req, res)=>{
-	res.render('user/create');
+	res.render('job/create');
 });
 
 
@@ -34,7 +34,7 @@ router.get('/edit/:id', (req, res)=>{
 	// console.log(req.params.id);
 	userModel.getById(req.params.id, function(results){
 		// console.log(results[0].user_name);
-		res.render('user/edit', results[0]);
+		res.render('job/edit', results[0]);
 	});
 });
 
@@ -45,14 +45,14 @@ router.post('/edit/:id', (req, res)=>{
 router.get('/delete/:id', (req, res)=>{
 	userModel.getById(req.params.id, function(results){
 		// console.log(results[0].user_name);
-		res.render('user/delete', results[0]);
+		res.render('job/delete', results[0]);
 	});
 });
 
 router.post('/delete/:id', (req, res)=>{
 	userModel.delete(req.params.id, function(results){
 		// console.log(results[0].user_name);
-		res.redirect('/home/userlist');
+		res.redirect('/job/userlist');
 	});
 });
 

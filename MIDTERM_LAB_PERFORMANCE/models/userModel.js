@@ -30,6 +30,9 @@ module.exports= {
 
 	},
 	delete: function(id, callback){
-
+		var sql = "DELETE from user where userId='"+id+"'";
+		db.getResults(sql, function(results){
+			callback(results);
+		});
 	}
 }
