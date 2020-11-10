@@ -10,6 +10,7 @@ router.post('/', (req, res)=>{
 
 	var user = {
 		username: req.body.username,
+		password: req.body.password,
 		type: req.body.type
 	};
 
