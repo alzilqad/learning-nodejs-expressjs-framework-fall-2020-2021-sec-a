@@ -11,7 +11,7 @@ router.get('*',  (req, res, next)=>{
 });
 
 router.get('/', (req, res)=>{
-	res.render('home/index', {name: 'alamin', id:'123'});
+	res.render('home/index', {name: req.cookies['uname']});
 });
 
 

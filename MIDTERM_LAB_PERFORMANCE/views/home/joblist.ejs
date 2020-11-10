@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>User List</title>
+	<title>Job List</title>
 </head>
 <body>
-	<h1> Userlist</h1>
+	<h1> Joblist</h1>
 
 	<a href="/home">Back</a> | 
 	<a href="/logout">logout</a> 
@@ -12,12 +12,11 @@
 
 	<table border="1">
 		<tr>
-			<td>ID</td>
-			<td>Employee name</td>
-			<td>Username</td>
-			<td>Password</td>
-			<td>Company Name</td>
-			<td>Contact No</td>
+			<td>Job ID</td>
+			<td>Company name</td>
+			<td>Title</td>
+			<td>Location</td>
+			<td>Salary</td>
 		</tr>
 		
 		<!-- <% for(var i=0; i < users.length; i++){ %>
@@ -34,15 +33,14 @@
 		<% 
 			users.forEach( function(std){ %>
 			<tr>
-				<td><%= std.userId %></td>
-				<td><%= std.name %></td>
-				<td><%= std.user_name %></td>
-				<td><%= std.password %></td>
+				<td><%= std.jobId %></td>
 				<td><%= std.companyName %></td>
-				<td><%= std.contactNo %></td>
+				<td><%= std.title %></td>
+				<td><%= std.location %></td>
+				<td><%= std.salary %></td>
 				<td>
-					<a href="/user/edit/<%= std.userId %>">Edit</a> |
-					<a href="/user/delete/<%= std.userId %>">Delete</a>
+					<a href="/user/edit/<%= std.jobId %>">Edit</a> |
+					<a href="/user/delete/<%= std.jobId %>">Delete</a>
 				</td>
 			</tr>
 

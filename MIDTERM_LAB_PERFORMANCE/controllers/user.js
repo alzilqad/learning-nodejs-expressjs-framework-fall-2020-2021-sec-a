@@ -1,4 +1,5 @@
 const express 	= require('express');
+const userModel = require.main.require('./models/userModel');
 const router 	= express.Router();
 
 router.get('*',  (req, res, next)=>{
@@ -30,12 +31,10 @@ router.post('/create', (req, res)=>{
 
 router.get('/edit/:id', (req, res)=>{
 
-	var user = {
-		username: 'test',
-		password: 'test',
-		email: 'alamin@aiub.edu'
-	};
-	res.render('user/edit', user);
+	userModel.getById(function(results){
+		console.log(results)
+		res.render('user/edit', results);
+	});
 });
 
 router.post('/edit/:id', (req, res)=>{
