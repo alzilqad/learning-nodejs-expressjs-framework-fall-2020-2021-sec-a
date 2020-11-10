@@ -19,19 +19,9 @@
 			<td>Salary</td>
 		</tr>
 		
-		<!-- <% for(var i=0; i < users.length; i++){ %>
-			
-			<tr>
-				<td><%= users[i][0] %></td>
-				<td><%= users[i][1] %></td>
-				<td><%= users[i][2] %></td>
-				<td><%= users[i][3] %></td>
-			</tr>
-
-		<% } %> -->
 
 		<% 
-			users.forEach( function(std){ %>
+			jobs.forEach( function(std){ %>
 			<tr>
 				<td><%= std.jobId %></td>
 				<td><%= std.companyName %></td>

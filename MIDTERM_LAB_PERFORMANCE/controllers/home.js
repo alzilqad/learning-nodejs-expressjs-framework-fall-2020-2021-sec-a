@@ -1,5 +1,6 @@
 const express 	= require('express');
 const userModel = require.main.require('./models/userModel');
+const jobModel = require.main.require('./models/jobModel');
 const router 	= express.Router();
 
 router.get('*',  (req, res, next)=>{
@@ -16,9 +17,16 @@ router.get('/', (req, res)=>{
 
 
 router.get('/userlist', (req, res)=>{
-
 	userModel.getAll(function(results){
 		res.render('home/userlist', {users: results});
+	});
+
+})
+
+router.get('/joblist', (req, res)=>{
+
+	jobModel.getAll(function(results){
+		res.render('home/joblist', {jobs: results});
 	});
 
 })

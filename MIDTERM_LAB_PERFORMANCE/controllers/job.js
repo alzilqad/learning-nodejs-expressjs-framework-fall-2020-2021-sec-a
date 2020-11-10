@@ -1,5 +1,5 @@
 const express 	= require('express');
-const userModel = require.main.require('./models/userModel');
+const jobModel = require.main.require('./models/jobModel');
 const router 	= express.Router();
 
 router.get('*',  (req, res, next)=>{
@@ -32,7 +32,7 @@ router.post('/create', (req, res)=>{
 router.get('/edit/:id', (req, res)=>{
 
 	// console.log(req.params.id);
-	userModel.getById(req.params.id, function(results){
+	jobModel.getById(req.params.id, function(results){
 		// console.log(results[0].user_name);
 		res.render('job/edit', results[0]);
 	});
@@ -43,14 +43,14 @@ router.post('/edit/:id', (req, res)=>{
 });
 
 router.get('/delete/:id', (req, res)=>{
-	userModel.getById(req.params.id, function(results){
+	jobModel.getById(req.params.id, function(results){
 		// console.log(results[0].user_name);
 		res.render('job/delete', results[0]);
 	});
 });
 
 router.post('/delete/:id', (req, res)=>{
-	userModel.delete(req.params.id, function(results){
+	jobModel.delete(req.params.id, function(results){
 		// console.log(results[0].user_name);
 		res.redirect('/job/userlist');
 	});
