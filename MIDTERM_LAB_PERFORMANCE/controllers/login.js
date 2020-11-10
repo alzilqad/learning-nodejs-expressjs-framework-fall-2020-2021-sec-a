@@ -10,15 +10,14 @@ router.post('/', (req, res)=>{
 
 	var user = {
 		username: req.body.username,
-		password: req.body.password
+		type: req.body.type
 	};
 
 	userModel.validate(user, function(status, type){
 		if(status){
 			res.cookie('uname', req.body.username);
-			if(type){
-				res.redirect('/home');
-			}
+			res.cookie('type', req.body.type);
+			res.redirect('/home');
 		}else{
 			res.redirect('/login');
 		}

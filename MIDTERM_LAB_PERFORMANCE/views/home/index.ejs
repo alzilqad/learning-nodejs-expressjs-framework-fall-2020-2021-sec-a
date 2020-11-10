@@ -5,10 +5,14 @@
 </head>
 <body>
 	<h1> Welcome, <%= name.toUpperCase() %></h1>
-
+	<% if(type){ %>
 	<a href="/user/create">Create User</a> | 
-	<a href="/home/userlist">User list</a> | 
+	<a href="/home/userlist">User List</a> | 
 	<a href="/logout">logout</a> 
-
+	<% }else{ %>
+	<a href="/job/create">Job User</a> | 
+	<a href="/home/joblist">Job List</a> | 
+	<a href="/logout">logout</a> 
+	<% } %>
 </body>
 </html>
