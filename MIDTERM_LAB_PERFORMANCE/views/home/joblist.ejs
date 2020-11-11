@@ -6,7 +6,7 @@
 <body>
 	<h1> Joblist</h1>
 
-	<a href="/home">Back</a> | 
+	<a href="/">Back</a> | 
 	<a href="/logout">logout</a> 
 	<br>
 
@@ -29,8 +29,8 @@
 				<td><%= std.location %></td>
 				<td><%= std.salary %></td>
 				<td>
-					<a href="/user/edit/<%= std.jobId %>">Edit</a> |
-					<a href="/user/delete/<%= std.jobId %>">Delete</a>
+					<a href="/job/edit/<%= std.jobId %>">Edit</a> |
+					<a href="/job/delete/<%= std.jobId %>">Delete</a>
 				</td>
 			</tr>
 

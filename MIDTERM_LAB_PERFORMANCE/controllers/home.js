@@ -16,14 +16,14 @@ router.get('/', (req, res)=>{
 });
 
 
-router.get('/userlist', (req, res)=>{
+router.get('/user', (req, res)=>{
 	userModel.getAll(function(results){
 		res.render('home/userlist', {users: results});
 	});
 
 })
 
-router.get('/joblist', (req, res)=>{
+router.get('/job', (req, res)=>{
 
 	jobModel.getAll(function(results){
 		res.render('home/joblist', {jobs: results});
