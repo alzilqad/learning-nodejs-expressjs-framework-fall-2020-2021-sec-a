@@ -1,44 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Job List</title>
-</head>
-<body>
-	<h1> Joblist</h1>
+  <head>
+    <title>Job List</title>
+  </head>
+  <body>
+    <h1>Joblist</h1>
 
-	<a href="/">Back</a> | 
-	<a href="/logout">logout</a> 
-	<br>
+    <a href="/">Back</a> |
+    <a href="/logout">logout</a>
+    <br />
+    <form method="post">
+	  <input type="text" name="searchInput" />
+	  <input type="submit" name="search" value="Search" />
+      <table border="1">
+        <tr>
+          <td>Job ID</td>
+          <td>Company name</td>
+          <td>Title</td>
+          <td>Location</td>
+          <td>Salary</td>
+        </tr>
 
-	<table border="1">
-		<tr>
-			<td>Job ID</td>
-			<td>Company name</td>
-			<td>Title</td>
-			<td>Location</td>
-			<td>Salary</td>
-		</tr>
-		
+        <% jobs.forEach( function(std){ %>
+        <tr>
+          <td><%= std.jobId %></td>
+          <td><%= std.companyName %></td>
+          <td><%= std.title %></td>
+          <td><%= std.location %></td>
+          <td><%= std.salary %></td>
+          <td>
+            <a href="/job/edit/<%= std.jobId %>">Edit</a> |
+            <a href="/job/delete/<%= std.jobId %>">Delete</a>
+          </td>
+        </tr>
 
-		<% 
-			jobs.forEach( function(std){ %>
-			<tr>
-				<td><%= std.jobId %></td>
-				<td><%= std.companyName %></td>
-				<td><%= std.title %></td>
-				<td><%= std.location %></td>
-				<td><%= std.salary %></td>
-				<td>
-					<a href="/job/edit/<%= std.jobId %>">Edit</a> |
-					<a href="/job/delete/<%= std.jobId %>">Delete</a>
-				</td>
-			</tr>
-
-		<%
-			}); 
-		%>
-		
-	</table>
-
-</body>
+        <% }); %>
+      </table>
+    </form>
+  </body>
 </html>

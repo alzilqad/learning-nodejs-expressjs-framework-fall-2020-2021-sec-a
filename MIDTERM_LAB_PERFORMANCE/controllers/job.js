@@ -10,6 +10,12 @@ router.get("*", (req, res, next) => {
   }
 });
 
+router.post("/", (req, res) => {
+  jobModel.getByName(req.body.searchInput, function (results) {
+    res.render("/", { jobs: results });
+  });
+});
+
 router.get("/create", (req, res) => {
   res.render("job/create");
 });

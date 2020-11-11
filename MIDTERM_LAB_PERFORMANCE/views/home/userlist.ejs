@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>User List</title>
-</head>
-<body>
-	<h1> Userlist</h1>
+  <head>
+    <title>User List</title>
+  </head>
+  <body>
+    <h1>Userlist</h1>
 
-	<a href="/">Back</a> | 
-	<a href="/logout">logout</a> 
-	<br>
+    <a href="/">Back</a> |
+    <a href="/logout">logout</a>
+    <br />
+    <form method="post">
+	  <input type="text" name="searchInput" />
+	  <input type="submit" name="search" value="Search" />
+      <table border="1">
+        <tr>
+          <td>ID</td>
+          <td>Employee name</td>
+          <td>Username</td>
+          <td>Password</td>
+          <td>Company Name</td>
+          <td>Contact No</td>
+        </tr>
 
-	<table border="1">
-		<tr>
-			<td>ID</td>
-			<td>Employee name</td>
-			<td>Username</td>
-			<td>Password</td>
-			<td>Company Name</td>
-			<td>Contact No</td>
-		</tr>
-		
-		<!-- <% for(var i=0; i < users.length; i++){ %>
+        <!-- <% for(var i=0; i < users.length; i++){ %>
 			
 			<tr>
 				<td><%= users[i][0] %></td>
@@ -31,26 +33,22 @@
 
 		<% } %> -->
 
-		<% 
-			users.forEach( function(std){ %>
-			<tr>
-				<td><%= std.userId %></td>
-				<td><%= std.name %></td>
-				<td><%= std.user_name %></td>
-				<td><%= std.password %></td>
-				<td><%= std.companyName %></td>
-				<td><%= std.contactNo %></td>
-				<td>
-					<a href="/user/edit/<%= std.userId %>">Edit</a> |
-					<a href="/user/delete/<%= std.userId %>">Delete</a>
-				</td>
-			</tr>
+        <% users.forEach( function(std){ %>
+        <tr>
+          <td><%= std.userId %></td>
+          <td><%= std.name %></td>
+          <td><%= std.user_name %></td>
+          <td><%= std.password %></td>
+          <td><%= std.companyName %></td>
+          <td><%= std.contactNo %></td>
+          <td>
+            <a href="/user/edit/<%= std.userId %>">Edit</a> |
+            <a href="/user/delete/<%= std.userId %>">Delete</a>
+          </td>
+        </tr>
 
-		<%
-			}); 
-		%>
-		
-	</table>
-
-</body>
+        <% }); %>
+      </table>
+    </form>
+  </body>
 </html>

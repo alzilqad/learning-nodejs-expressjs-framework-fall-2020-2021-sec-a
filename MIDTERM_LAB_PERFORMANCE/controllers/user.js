@@ -10,6 +10,13 @@ router.get("*", (req, res, next) => {
   }
 });
 
+router.post("/", (req, res) => {
+  userModel.getByName(req.body.searchInput, function (results) {
+	  console.log(req.body.searchInput);
+    res.render("home/userlist", { users: results });
+  });
+});
+
 router.get("/create", (req, res) => {
   res.render("user/create");
 });

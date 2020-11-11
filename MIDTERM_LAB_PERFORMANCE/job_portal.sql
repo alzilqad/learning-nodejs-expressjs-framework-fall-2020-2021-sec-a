@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2020 at 08:43 AM
+-- Generation Time: Nov 11, 2020 at 07:04 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -36,6 +36,13 @@ CREATE TABLE `job` (
   `salary` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `job`
+--
+
+INSERT INTO `job` (`jobId`, `companyName`, `title`, `location`, `salary`) VALUES
+(3, 'Zoic', 'ksbaf', 'kfbf', 21515);
+
 -- --------------------------------------------------------
 
 --
@@ -57,8 +64,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`userId`, `name`, `companyName`, `contactNo`, `user_name`, `password`, `user_type`) VALUES
-(1, 'Al Zilqad Tonoy', 'Zoic', 824018240, 'zilqad', 'zilqad29', 1),
-(2, 'Al Tonoy', 'Zoic', 14214, 'tonoy', 'tonoy29', 0);
+(1, 'Al Zilqad Tono', 'Zoic', 824018240, 'zilqad', 'zilqad29', 1),
+(3, 'Sondhi', 'Zoic', 125125, 'Sondhi', 'sondhi29', 0),
+(4, 'nfa', 'zoic', 5125611, 'undefined', 'fasfaf', 0),
+(8, 'abfl', 'bfdlke', 218965, 'asef', 'rhfan', 0),
+(9, 'a', 'a', 1, 'a', 'a', 0),
+(10, 'aaaaa', 'aaaaa', 24182, 'aaaaa', 'aaaaa', 0),
+(11, 'aaa', 'aaaaaaaa', 24182412, 'sad', 'aaaaaaaa', 0);
 
 --
 -- Indexes for dumped tables
@@ -76,6 +88,22 @@ ALTER TABLE `job`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`userId`),
   ADD UNIQUE KEY `user_name` (`user_name`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `job`
+--
+ALTER TABLE `job`
+  MODIFY `jobId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `userId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
