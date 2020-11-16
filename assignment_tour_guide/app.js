@@ -10,6 +10,9 @@ const home				= require('./controllers/home');
 const login				= require('./controllers/login');
 const logout			= require('./controllers/logout');
 const registration		= require('./controllers/registration');
+const user				= require('./controllers/user');
+const scout				= require('./controllers/scout');
+
 
 //configuration
 app.set('view engine', 'ejs');
@@ -25,7 +28,8 @@ app.use('/', home);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use('/registration', registration);
-
+app.use('/user', user);
+app.use('/scout', scout);
 
 // //router
 // app.get('/', (req, res)=>{

@@ -51,4 +51,11 @@ module.exports = {
       callback(results);
     });
   },
+
+  getByName: function (name, callback) {
+    var sql = "select * from user where full_name like '%" + name + "%'";
+    db.getResults(sql, function (results) {
+      callback(results);
+    });
+  },
 };
