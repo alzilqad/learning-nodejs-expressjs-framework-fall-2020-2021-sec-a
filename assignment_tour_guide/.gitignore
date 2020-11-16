@@ -1,5 +1,3 @@
 /node_modules
-/assets
 /views/home/test.ejs
-/views/header.ejs
-/views/footer.ejs
+/assets/sample.html

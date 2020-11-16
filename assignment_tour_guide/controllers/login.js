@@ -3,7 +3,7 @@ const userModel = require.main.require("./models/userModel");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.render("login/index");
+  res.render("login/index", {name: req.cookies['uname'], type: req.cookies['type']});
 });
 
 router.post("/", (req, res) => {

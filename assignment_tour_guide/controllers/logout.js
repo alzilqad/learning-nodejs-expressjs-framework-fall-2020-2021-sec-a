@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 
   res.clearCookie("uname");
   res.clearCookie("password");
-  res.clearCookie("type");
+  res.cookie("type", "");
   res.redirect("/login");
 });
 

@@ -10,16 +10,18 @@ const home				= require('./controllers/home');
 const user				= require('./controllers/user');
 const job				= require('./controllers/job');
 const app				= express();
-const port				= 3001;
+const port				= 3000;
 
 //configuration
 app.set('view engine', 'ejs');
+
 
 //middleware
 app.use('/abc', express.static('assets'))
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(exSession({secret: 'secret value', saveUninitialized: true, resave: false}));
+
 
 app.use('/login', login);
 app.use('/', home);
