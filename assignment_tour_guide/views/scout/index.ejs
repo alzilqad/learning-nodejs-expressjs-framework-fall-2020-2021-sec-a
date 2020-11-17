@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../header') %>
+  
+  <body>
+    <div align="center">
+      <form method="post">
+        <legend><h2>Scout List</h2></legend>
+
+        <div class="md-form">
+          <input
+            name="searchInput"
+            class="form-control"
+            type="text"
+            placeholder="Search"
+            aria-label="Search"
+            style="width:90%"
+          />
+        </div>
+        <input class="btn" type="submit" name="search" value="Search" />
+        <table class="table" style="width:90%">
+          <thead>
+            <tr>
+              <td>ID</td>
+              <td>Full Name</td>
+              <td>Username</td>
+              <td>Password</td>
+              <td>Contact No</td>
+              <td>Email</td>
+              <td>Address</td>
+              <td>Gender</td>
+              <td>Date of Birth</td>
+              <td>Status</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% users.forEach( function(std){ %>
+            <tr>
+              <td><%= std.user_id %></td>
+              <td><%= std.full_name %></td>
+              <td><%= std.username %></td>
+              <td><%= std.password %></td>
+              <td><%= std.contact_no %></td>
+              <td><%= std.email %></td>
+              <td><%= std.address %></td>
+              <td><%= std.gender %></td>
+              <td>
+                <%=
+                std.dob.getDate()+"."+(std.dob.getMonth()+1)+"."+std.dob.getFullYear();
+                %>
+              </td>
+              <td><%= std.status %></td>
+              <td>
+                <a href="/scout/edit/<%= std.user_id %>">Edit</a> |
+                <a href="/scout/delete/<%= std.user_id %>">Delete</a> |
+                <a>Deactive</a>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+          
+        </table>
+        <a class="btn" href="/scout/create">Create</a>
+
+      </form>
+    </div>
+  </body>
+
+  <%- include('../footer') %>
+</html>
