@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2020 at 04:15 PM
+-- Generation Time: Nov 17, 2020 at 02:37 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -32,6 +32,8 @@ CREATE TABLE `attraction` (
   `attraction_id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `description` varchar(255) NOT NULL,
+  `country_name` varchar(20) NOT NULL,
+  `history` varchar(255) DEFAULT NULL,
   `user_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -45,19 +47,8 @@ CREATE TABLE `comment` (
   `comment_id` int(50) NOT NULL,
   `body` varchar(255) NOT NULL,
   `rating` int(1) NOT NULL,
-  `user_id` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `country`
---
-
-CREATE TABLE `country` (
-  `country_id` int(20) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `history` varchar(255) DEFAULT NULL
+  `user_id` int(20) NOT NULL,
+  `tour_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -76,7 +67,8 @@ CREATE TABLE `tour` (
   `duration` int(20) NOT NULL,
   `departure_time` date NOT NULL,
   `return_time` date NOT NULL,
-  `user_id` int(20) NOT NULL
+  `user_id` int(20) NOT NULL,
+  `attraction_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -98,6 +90,16 @@ CREATE TABLE `user` (
   `user_type` varchar(10) NOT NULL DEFAULT 'user',
   `status` varchar(10) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `password`, `full_name`, `contact_no`, `email`, `address`, `gender`, `dob`, `user_type`, `status`) VALUES
+(1, 'admin', 'admin', 'Mr. Admin', 21343, 'admin@gmail.com', 'afnwainfoi', 'Male', '2020-11-04', 'admin', 'active'),
+(2, 'Scout', 'scout', 'Mr. Scouts', 65126, 'scout@gmail.com', 'fabksbf', 'Male', '2020-11-04', 'scout', 'active'),
+(3, 'User', 'user', 'Mr. User', 81235, 'user@gmail.com', 'asfnaoin', 'Male', '2016-10-29', 'user', 'active'),
+(20, 'zilqad', 'zilqad', 'zilqad', 58237, 'zilqad@gmail.com', 'fbafbk', 'Male', '2020-12-31', 'user', 'active');
 
 -- --------------------------------------------------------
 
@@ -126,12 +128,6 @@ ALTER TABLE `attraction`
 --
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`comment_id`);
-
---
--- Indexes for table `country`
---
-ALTER TABLE `country`
-  ADD PRIMARY KEY (`country_id`);
 
 --
 -- Indexes for table `tour`
@@ -169,12 +165,6 @@ ALTER TABLE `comment`
   MODIFY `comment_id` int(50) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `country`
---
-ALTER TABLE `country`
-  MODIFY `country_id` int(20) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tour`
 --
 ALTER TABLE `tour`
@@ -184,7 +174,7 @@ ALTER TABLE `tour`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `wishlist`

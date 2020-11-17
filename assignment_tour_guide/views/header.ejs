@@ -41,6 +41,8 @@ http://www.templatemo.com/tm-522-venue
                 <li>
                   <a href="/">Home</a>
                 </li>
+
+                <!-- admin header -->
                 <% if(type!="") { %> <% if(type==="admin") { %>
                 <li>
                   <a class="scrollTo" href="/scout">Scouts</a>
@@ -49,10 +51,17 @@ http://www.templatemo.com/tm-522-venue
                   <a class="scrollTo" href="/user">Users</a>
                 </li>
                 <li>
-                  <a class="scrollTo" href="/attraction">Attraction</a>
+                  <a class="scrollTo" href="/place">Destination</a>
+                </li>
+
+                <!-- scout header -->
+                <% } else if(type==="scout") { %>
+                <li>
+                  <a class="scrollTo" href="/place">Destination</a>
                 </li>
                 <% } %>
 
+                <!-- register user header -->
                 <li>
                   <a class="scrollTo" data-scrollTo="wishlist" href="#"
                     >Wishlist</a
@@ -62,12 +71,8 @@ http://www.templatemo.com/tm-522-venue
                   <a class="scrollTo" href="/logout">Logout</a>
                 </li>
 
+                <!-- non-register user header -->
                 <% } else { %>
-                <li>
-                  <a class="scrollTo" data-scrollTo="wishlist" href="#"
-                    >Wishlist</a
-                  >
-                </li>
                 <li>
                   <a class="scrollTo" data-scrollTo="contact" href="#"
                     >Contact Us</a
@@ -77,6 +82,7 @@ http://www.templatemo.com/tm-522-venue
                   <a class="scrollTo" href="/login">Login</a>
                 </li>
                 <% } %>
+
                 <li>
                   <a
                     class="scrollTo"

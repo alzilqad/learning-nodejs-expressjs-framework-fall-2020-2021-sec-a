@@ -12,6 +12,7 @@ const logout			= require('./controllers/logout');
 const registration		= require('./controllers/registration');
 const user				= require('./controllers/user');
 const scout				= require('./controllers/scout');
+const place				= require('./controllers/place');
 
 
 //configuration
@@ -30,6 +31,7 @@ app.use('/logout', logout);
 app.use('/registration', registration);
 app.use('/user', user);
 app.use('/scout', scout);
+app.use('/place', place);
 
 // //router
 // app.get('/', (req, res)=>{
