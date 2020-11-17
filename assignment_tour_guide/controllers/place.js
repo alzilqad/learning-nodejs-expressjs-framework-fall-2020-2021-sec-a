@@ -1,5 +1,6 @@
 const express = require("express");
 const placeModel = require.main.require("./models/placeModel");
+const wishlistModel = require.main.require("./models/wishlistModel");
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -72,21 +73,31 @@ router.post("/edit/:id", (req, res) => {
       res.send("Place has not been Updated");
     }
   });
+});
 
-  router.get("/delete/:id", (req, res) => {
-    placeModel.getById(req.params.id, function (results) {
-      res.render("place/delete", {
-        place: results[0],
-        name: req.cookies["uname"],
-        type: req.cookies["type"],
-      });
+router.get("/delete/:id", (req, res) => {
+  placeModel.getById(req.params.id, function (results) {
+    res.render("place/delete", {
+      place: results[0],
+      name: req.cookies["uname"],
+      type: req.cookies["type"],
     });
   });
+});
 
-  router.post("/delete/:id", (req, res) => {
-    placeModel.delete(req.params.id, function (results) {
+router.post("/delete/:id", (req, res) => {
+  placeModel.delete(req.params.id, function (results) {
+    res.redirect("/place");
+  });
+});
+
+router.get("/:id", (req, res) => {
+  wishlistModel.insert(req.params.id, req.cookies["uname"], function (result) {
+    if (result) {
       res.redirect("/place");
-    });
+    } else {
+      res.send("Wishlist can not be Saved");
+    }
   });
 });
 

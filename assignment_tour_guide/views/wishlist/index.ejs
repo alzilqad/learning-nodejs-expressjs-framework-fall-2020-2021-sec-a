@@ -26,40 +26,25 @@
               <td>Description</td>
               <td>Country</td>
               <td>History</td>
-              <% if(type == "admin") { %>
-              <td>Published By</td>
-              <% } %>
-              <td>Status</td>
             </tr>
           </thead>
           <tbody>
             <% place.forEach( function(std){ %>
             <tr>
-              <td><%= std.attraction_id %></td>
+              <td><%= std.wishlist_id %></td>
               <td><%= std.title %></td>
               <td><%= std.description %></td>
               <td><%= std.country_name %></td>
               <td><%= std.history %></td>
-              <% if(type == "admin") { %>
-              <td><%= std.username %></td>
-              <% } %>
-              <td><%= std.status %></td>
 
               <td>
-                <a href="/place/edit/<%= std.attraction_id %>">Edit</a> |
-                <a href="/place/delete/<%= std.attraction_id %>">Delete</a> |
-                <a href="/place/<%= std.attraction_id %>">Save</a> | 
-                
-                <% if(type == "admin") { %>
-                <a href="">Deactive</a>
-                <% } %>
+                <a href="/wishlist/<%= std.wishlist_id %>">Unsave</a> |
                 
               </td>
             </tr>
             <% }); %>
           </tbody>
         </table>
-        <a class="btn" href="/place/create">Create</a>
       </form>
     </div>
   </body>

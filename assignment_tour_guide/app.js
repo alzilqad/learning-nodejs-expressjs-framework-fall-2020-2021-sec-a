@@ -13,6 +13,7 @@ const registration		= require('./controllers/registration');
 const user				= require('./controllers/user');
 const scout				= require('./controllers/scout');
 const place				= require('./controllers/place');
+const wishlist			= require('./controllers/wishlist');
 
 
 //configuration
@@ -32,6 +33,7 @@ app.use('/registration', registration);
 app.use('/user', user);
 app.use('/scout', scout);
 app.use('/place', place);
+app.use('/wishlist', wishlist);
 
 // //router
 // app.get('/', (req, res)=>{
