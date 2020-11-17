@@ -2,6 +2,55 @@
 <html>
   <%- include('../header') %>
 
+  <body>
+    <div align="center">
+      <form method="post">
+        <fieldset>
+          <legend><h2>Edit Scout</h2></legend>
+
+          <table class="table table-condensed" style="width:50%">
+            <tr>
+              <td>Title:</td>
+              <td>
+                <input class="form-control" type="text" name="title" value="<%=place.title%>"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Description:</td>
+              <td>
+                <input class="form-control" type="text" name="description" style="height:210px" value="<%=place.description%>"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Country:</td>
+              <td>
+                <input class="form-control" type="text" name="country" value="<%=place.country_name%>"/>
+              </td>
+            </tr>
+            <tr>
+              <td>History:</td>
+              <td>
+                <input class="form-control" type="text" name="history" style="height:210px" value="<%=place.history%>"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Published by:</td>
+              <td>
+                <input class="form-control" type="text" name="username"  value="<%=name%>" disabled/>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="submit" name="submit" value="Update" />
+              </td>
+            </tr>
+          </table>
+
+        </fieldset>
+      </form>
+    </div>
+  </body>
 
   <%- include('../footer') %>
 </html>

@@ -2,6 +2,57 @@
 <html>
   <%- include('../header') %>
 
+  <body>
+    <div align="center">
+      <form method="post">
+        <legend><h2>Destination List</h2></legend>
+
+        <div class="md-form">
+          <input
+            name="searchInput"
+            class="form-control"
+            type="text"
+            placeholder="Search"
+            aria-label="Search"
+            style="width: 90%"
+          />
+        </div>
+        <input class="btn" type="submit" name="search" value="Search" />
+        <table class="table" style="width: 90%">
+          <thead>
+            <tr>
+              <td>No</td>
+              <td>Title</td>
+              <td>Description</td>
+              <td>Country</td>
+              <td>History</td>
+              <td>Published By</td>
+              <td>Status</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% place.forEach( function(std){ %>
+            <tr>
+              <td><%= std.attraction_id %></td>
+              <td><%= std.title %></td>
+              <td><%= std.description %></td>
+              <td><%= std.country_name %></td>
+              <td><%= std.history %></td>
+              <td><%= std.username %></td>
+              <td><%= std.status %></td>
+
+              <td>
+                <a href="/place/edit/<%= std.attraction_id %>">Edit</a> |
+                <a href="/place/delete/<%= std.attraction_id %>">Delete</a> |
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+        <a class="btn" href="/place/create">Create</a>
+      </form>
+    </div>
+  </body>
 
   <%- include('../footer') %>
 </html>
