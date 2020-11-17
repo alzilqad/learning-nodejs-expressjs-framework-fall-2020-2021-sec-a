@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2020 at 02:37 AM
+-- Generation Time: Nov 17, 2020 at 05:40 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -34,8 +34,19 @@ CREATE TABLE `attraction` (
   `description` varchar(255) NOT NULL,
   `country_name` varchar(20) NOT NULL,
   `history` varchar(255) DEFAULT NULL,
-  `user_id` int(20) NOT NULL
+  `username` varchar(20) NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'Inactive'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `attraction`
+--
+
+INSERT INTO `attraction` (`attraction_id`, `title`, `description`, `country_name`, `history`, `username`, `status`) VALUES
+(1, 'location1', 'aknfianfiown', 'Bangladesh', 'fnaiofn', 'scout', 'Inactive'),
+(2, 'location2', 'aknfianfiown', 'Bangladesh', 'fnaiofn', 'admin', 'Inactive'),
+(3, 'location3', 'aknfianfiown', 'Bangladesh', 'fnaiofn', 'scout', 'Inactive'),
+(4, 'location4', 'aknfianfiown', 'Iran', 'fnaiofn', 'scout', 'Inactive');
 
 -- --------------------------------------------------------
 
@@ -67,8 +78,9 @@ CREATE TABLE `tour` (
   `duration` int(20) NOT NULL,
   `departure_time` date NOT NULL,
   `return_time` date NOT NULL,
-  `user_id` int(20) NOT NULL,
-  `attraction_id` int(11) NOT NULL
+  `username` int(20) NOT NULL,
+  `attraction_id` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'Inactive'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -109,9 +121,18 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `full_name`, `contact_no`
 
 CREATE TABLE `wishlist` (
   `wishlist_id` int(20) NOT NULL,
-  `user_id` int(20) NOT NULL,
+  `user_name` varchar(20) NOT NULL,
   `attraction_id` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`wishlist_id`, `user_name`, `attraction_id`) VALUES
+(2, 'scout', 1),
+(3, 'user', 1),
+(4, 'admin', 1);
 
 --
 -- Indexes for dumped tables
@@ -156,7 +177,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `attraction`
 --
 ALTER TABLE `attraction`
-  MODIFY `attraction_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `attraction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `comment`
@@ -180,7 +201,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `wishlist_id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `wishlist_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
