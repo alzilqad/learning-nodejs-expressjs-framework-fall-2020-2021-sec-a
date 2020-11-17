@@ -46,12 +46,12 @@
               <td><%= std.status %></td>
 
               <td>
-                <a href="/place/edit/<%= std.attraction_id %>">Edit</a> |
-                <a href="/place/delete/<%= std.attraction_id %>">Delete</a> |
-                <a href="/place/<%= std.attraction_id %>">Save</a> | 
+                <a href="/place/<%= std.attraction_id %>">Save</a> |
+                <a href="/place/edit/<%= std.attraction_id %>">Edit</a> | 
                 
                 <% if(type == "admin") { %>
-                <a href="">Deactive</a>
+                    <a href="/place/delete/<%= std.attraction_id %>">Delete</a> |
+                    <a href="">Deactive</a>
                 <% } %>
                 
               </td>
@@ -59,7 +59,9 @@
             <% }); %>
           </tbody>
         </table>
+        <% if(type == "admin") { %>
         <a class="btn" href="/place/create">Create</a>
+        <% } %>
       </form>
     </div>
   </body>
