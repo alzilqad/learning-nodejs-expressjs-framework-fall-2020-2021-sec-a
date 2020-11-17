@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../header') %>
+
+  <body>
+    <div align="center">
+      <form method="post">
+        <fieldset>
+          <legend><h2>Delete User</h2></legend>
+
+          <table>
+            <tr>
+              <td>Username:</td>
+              <td><%=user.username%></td>
+            </tr>
+            <tr>
+              <td>Password:</td>
+              <td><%=user.password%></td>
+            </tr>
+            <tr>
+              <td>Name:</td>
+              <td><%=user.full_name%></td>
+            </tr>
+            <tr>
+              <td>Contact No:</td>
+              <td><%=user.contact_no%></td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td><%=user.email%></td>
+            </tr>
+            <tr>
+              <td>Address:</td>
+              <td><%=user.address%></td>
+            </tr>
+            <tr>
+              <td>Gender:</td>
+              <td><%=user.gender%></td>
+            </tr>
+            <tr>
+              <td>Date of Birth:</td>
+              <td><%=user.dob.getDate()+"."+(user.dob.getMonth()+1)+"."+user.dob.getFullYear();%></td>
+            </tr>
+            <tr>
+              <td>Role:</td>
+              <td>User</td>
+            </tr>
+            <tr>
+              <td>Are sure? this can't be undone!</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="submit" name="submit" value="Delete" />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+
+  <%- include('../footer') %>
+</html>

@@ -12,7 +12,7 @@ router.get("*", (req, res, next) => {
 
 router.post("/", (req, res) => {
   userModel.getByName(req.body.searchInput, function (results) {
-	  console.log(req.body.searchInput);
+    console.log(req.body.searchInput);
     res.render("home/userlist", { users: results });
   });
 });

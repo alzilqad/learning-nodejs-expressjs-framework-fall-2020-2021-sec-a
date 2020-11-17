@@ -5,47 +5,66 @@
   <body>
     <div align="center">
       <form method="post">
-        
         <fieldset>
-            <legend><h2>Edit User</h2></legend>
-            <table>
+          <legend><h2>Edit User</h2></legend>
+
+          <table>
             <tr>
-              <td>Username</td>
+              <td>Username:</td>
               <td>
-                <input type="text" name="user_name" value="<%=username%>" />
+                <input class="form-control" type="text" name="username" value="<%=user.username%>"/>
               </td>
             </tr>
             <tr>
-              <td>Password</td>
+              <td>Password:</td>
               <td>
-                <input type="password" name="password" value="<%=password%>" />
+                <input class="form-control" type="password" name="password" value="<%=user.password%>"/>
               </td>
             </tr>
             <tr>
-              <td>Name</td>
-              <td><input type="text" name="name" value="<%=name%>" /></td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
+              <td>Name:</td>
               <td>
-                <input
-                  type="text"
-                  name="companyName"
-                  value="<%=companyName%>"
-                />
+                <input class="form-control" type="text" name="full_name" value="<%=user.full_name%>"/>
               </td>
             </tr>
             <tr>
-              <td>Contact No</td>
+              <td>Contact No:</td>
               <td>
-                <input type="text" name="contactNo" value="<%=contactNo%>" />
+                <input class="form-control" type="text" name="contact_no" value="<%=user.contact_no%>"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td><input class="form-control" type="text" name="email" value="<%=user.email%>"/></td>
+            </tr>
+            <tr>
+              <td>Address:</td>
+              <td><input class="form-control" type="text" name="address" value="<%=user.address%>"/></td>
+            </tr>
+            <tr>
+              <td>Gender:</td>
+              <td><input class="form-control" type="text" name="gender" value="<%=user.gender%>"/></td>
+            </tr>
+            <tr>
+              <td>Date of Birth:</td>
+              <td><input class="form-control" type="date" name="dob" value="<%=user.dob%>"/></td>
+            </tr>
+            <tr>
+              <td>Role:</td>
+              <td>
+                <select class="form-control" required name="type">
+                  <option value="user">User</option>
+                </select>
               </td>
             </tr>
             <tr>
               <td></td>
-              <td><input type="submit" name="submit" value="Submit" /></td>
+              <td>
+                <input type="submit" name="submit" value="Update" />
+              </td>
             </tr>
           </table>
+
         </fieldset>
       </form>
     </div>

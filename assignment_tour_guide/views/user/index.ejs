@@ -50,14 +50,17 @@
               </td>
               <td><%= std.status %></td>
               <td>
-                <a href="/user/edit/<%= std.userId %>">Edit</a> |
-                <a href="/user/delete/<%= std.userId %>">Delete</a> |
+                <a href="/user/edit/<%= std.user_id %>">Edit</a> |
+                <a href="/user/delete/<%= std.user_id %>">Delete</a> |
                 <a>Deactive</a>
               </td>
             </tr>
             <% }); %>
           </tbody>
+          
         </table>
+        <a class="btn" href="/user/create">Create</a>
+
       </form>
     </div>
   </body>

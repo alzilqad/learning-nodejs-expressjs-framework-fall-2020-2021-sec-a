@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../header') %>
+
+  <body>
+    <div align="center">
+      <form method="post">
+        <fieldset>
+          <legend><h2>Create User</h2></legend>
+
+          <table>
+            <tr>
+              <td>Username:</td>
+              <td>
+                <input class="form-control" type="text" name="username" />
+              </td>
+            </tr>
+            <tr>
+              <td>Password:</td>
+              <td>
+                <input class="form-control" type="password" name="password" />
+              </td>
+            </tr>
+            <tr>
+              <td>Name:</td>
+              <td>
+                <input class="form-control" type="text" name="full_name" />
+              </td>
+            </tr>
+            <tr>
+              <td>Contact No:</td>
+              <td>
+                <input class="form-control" type="text" name="contact_no" />
+              </td>
+            </tr>
+            <tr>
+              <td>Email:</td>
+              <td><input class="form-control" type="text" name="email" /></td>
+            </tr>
+            <tr>
+              <td>Address:</td>
+              <td><input class="form-control" type="text" name="address" /></td>
+            </tr>
+            <tr>
+              <td>Gender:</td>
+              <td><input class="form-control" type="text" name="gender" /></td>
+            </tr>
+            <tr>
+              <td>Date of Birth:</td>
+              <td><input class="form-control" type="date" name="dob" /></td>
+            </tr>
+            <tr>
+              <td>Role:</td>
+              <td>
+                <select class="form-control" required name="type">
+                  <option value="user">User</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="submit" name="submit" value="Create" />
+              </td>
+            </tr>
+          </table>
+          
+        </fieldset>
+      </form>
+    </div>
+  </body>
+
+  <%- include('../footer') %>
+</html>

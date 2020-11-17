@@ -11,7 +11,7 @@ router.post("/", (req, res) => {
     req.body.username,
     req.body.password,
     req.body.full_name,
-    req.body.contactNo,
+    req.body.contact_no,
     req.body.email,
     req.body.address,
     req.body.gender,

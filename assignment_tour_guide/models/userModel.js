@@ -25,7 +25,7 @@ module.exports = {
   },
 
   getAll: function (callback) {
-    var sql = "select * from user";
+    var sql = "select * from user where user_type = 'user'";
     db.getResults(sql, function (results) {
       callback(results);
     });
@@ -53,7 +53,7 @@ module.exports = {
   },
 
   getByName: function (name, callback) {
-    var sql = "select * from user where full_name like '%" + name + "%'";
+    var sql = "select * from user where user_type = 'user' and full_name like '%" + name + "%'";
     db.getResults(sql, function (results) {
       callback(results);
     });
